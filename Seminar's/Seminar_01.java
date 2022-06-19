@@ -22,12 +22,9 @@ import java.lang.Math;
 public class Seminar_01 {
 
     public static void main(String[] args) throws IOException {
-        // System.out.println(aPowb(3, -2));
+        System.out.println(aPowb(3, -2));
         int[] array = Reader();
-        int a = array[1];
-        int b = array[0];
-        Writer(aPowb(a, b));
-
+        Writer(aPowb(array[1], array[0]));
     }
 
     public static String aPowb(int a, int b) {
