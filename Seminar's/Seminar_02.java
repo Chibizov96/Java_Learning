@@ -5,10 +5,7 @@ import java.util.Scanner;
 public class Seminar_02 {
 
     public static void main(String[] args) {
-        Scanner iScanner = new Scanner(System.in);
-        System.out.print("number for search: ");
-        int n = iScanner.nextInt();
-        iScanner.close();
+        int n = Scanner();
         System.out.println(Triangle(n));
     }
 
@@ -19,5 +16,14 @@ public class Seminar_02 {
             var Triangle_n = n * (n + 1) / 2;
             return (n + "-ое треугольное число равно: " + Triangle_n);
         }
+
+    }
+
+    public static int Scanner() throws NumberFormatException {
+        Scanner iScanner = new Scanner(System.in);
+        System.out.print("number for search: ");
+        int n = iScanner.nextInt();
+        iScanner.close();
+        return n;
     }
 }
