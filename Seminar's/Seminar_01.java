@@ -10,18 +10,52 @@
 // Результат нужно сохранить в файле output.txt
 // 1000
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import static java.lang.Math.pow;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.Math;
 
 public class Seminar_01 {
 
-    public static void main(String[] args) {
-        Scanner iScanner = new Scanner(System.in);
-        System.out.println("int a:");
-        double a = iScanner.nextInt();
-        System.out.println("int b:");
-        int b = iScanner.nextInt();
-        iScanner.close();
-        System.out.println("Число " + a + " в степени " + b + " равно " + Math.pow(a, b));
+    public static void main(String[] args) throws IOException {
+        // System.out.println(aPowb(3, -2));
+        int[] array = Reader();
+        int a = array[1];
+        int b = array[0];
+        Writer(aPowb(a, b));
+
+    }
+
+    public static String aPowb(int a, int b) {
+
+        try {
+            pow(a, b);
+        } catch (InputMismatchException exception) {
+            System.out.println("Введено не число");
+        }
+        return Double.toString(Math.pow(a, b));
+    }
+
+    public static int[] Reader() throws FileNotFoundException {
+        Scanner sc = new Scanner(new File("E:/Lerning/Year_2/Java/Java_Learning/Seminar's/input.txt"));
+        int[] array = { 0, 0 };
+        String[] splitted;
+        while (sc.hasNextLine()) {
+            splitted = sc.nextLine().split(" ");
+            array[0] = Integer.parseInt(splitted[1]);
+            splitted = sc.nextLine().split(" ");
+            array[1] = Integer.parseInt(splitted[1]);
+        }
+        return array;
+    }
+
+    public static void Writer(String str) throws IOException {
+        FileWriter writer = new FileWriter("E:/Lerning/Year_2/Java/Java_Learning/Seminar's/output.txt", false);
+        writer.write(str);
+        writer.close();
     }
 }
