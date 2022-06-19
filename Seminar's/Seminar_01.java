@@ -23,7 +23,7 @@ import java.lang.Math;
 public class Seminar_01 {
 
     public static void main(String[] args) throws IOException {
-        System.out.println(aPowb(3, -2));
+        System.out.println(aPowb(2, -3));
         int[] array = Reader();
         int a = array[1];
         int b = array[0];
@@ -56,7 +56,6 @@ public class Seminar_01 {
             } catch (NoSuchElementException e) {
                 System.out.println("Введено не число");
             }
-
         }
         return array;
     }
