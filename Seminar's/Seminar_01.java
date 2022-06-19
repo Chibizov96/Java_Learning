@@ -11,6 +11,7 @@
 // 1000
 
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import static java.lang.Math.pow;
 import java.io.File;
@@ -22,7 +23,7 @@ import java.lang.Math;
 public class Seminar_01 {
 
     public static void main(String[] args) throws IOException {
-        // System.out.println(aPowb(3, -2));
+        System.out.println(aPowb(3, -2));
         int[] array = Reader();
         int a = array[1];
         int b = array[0];
@@ -45,10 +46,17 @@ public class Seminar_01 {
         int[] array = { 0, 0 };
         String[] splitted;
         while (sc.hasNextLine()) {
-            splitted = sc.nextLine().split(" ");
-            array[0] = Integer.parseInt(splitted[1]);
-            splitted = sc.nextLine().split(" ");
-            array[1] = Integer.parseInt(splitted[1]);
+            try {
+                splitted = sc.nextLine().split(" ");
+                array[0] = Integer.parseInt(splitted[1]);
+                splitted = sc.nextLine().split(" ");
+                array[1] = Integer.parseInt(splitted[1]);
+            } catch (NumberFormatException e) {
+                System.out.println("Введено не число");
+            } catch (NoSuchElementException e) {
+                System.out.println("Введено не число");
+            }
+
         }
         return array;
     }
